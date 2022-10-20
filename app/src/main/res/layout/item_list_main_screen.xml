@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/item_main_list_cardview"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/item_main_list_cardview_margin_top"
+    android:elevation="@dimen/item_main_list_cardview_elevation"
+    app:cardCornerRadius="@dimen/item_main_list_cardview_corner_radius"
+    app:cardUseCompatPadding="true">
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/item_main_list_cover"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:scaleType="centerCrop"
+                tools:src="@drawable/ic_launcher_background" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/item_main_list_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/item_text_padding"
+                android:layout_marginTop="@dimen/item_main_list_title_margin_top"
+                android:textStyle="bold" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/item_main_list_release_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/item_main_list_release_date_margin_top"
+                android:padding="@dimen/item_text_padding"
+                android:layout_marginBottom="@dimen/item_main_list_release_date_margin_bottom" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/item_main_list_votes_shape"
+            android:layout_width="@dimen/item_main_list_votes_shape_width"
+            android:layout_height="@dimen/item_main_list_votes_shape_height"
+            android:layout_marginStart="@dimen/item_main_list_votes_shape_margin_start"
+            android:src="@drawable/circle_shape"
+            app:layout_anchor="@id/item_main_list_cover"
+            app:layout_anchorGravity="bottom|start" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/item_main_list_votes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            app:layout_anchor="@id/item_main_list_votes_shape"
+            app:layout_anchorGravity="center"
+            tools:text="5.0" />
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</com.google.android.material.card.MaterialCardView>

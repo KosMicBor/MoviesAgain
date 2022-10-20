@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="_0dp">0dp</dimen>
+    <dimen name="item_main_list_cardview_elevation">8dp</dimen>
+    <dimen name="item_main_list_cardview_corner_radius">8dp</dimen>
+    <dimen name="item_main_list_cardview_margin_top">8dp</dimen>
+    <dimen name="item_main_list_title_margin_top">24dp</dimen>
+    <dimen name="item_main_list_release_date_margin_top">8dp</dimen>
+    <dimen name="item_main_list_release_date_margin_bottom">8dp</dimen>
+    <dimen name="item_main_list_votes_shape_width">36dp</dimen>
+    <dimen name="item_main_list_votes_shape_height">36dp</dimen>
+    <dimen name="item_main_list_votes_shape_margin_start">16dp</dimen>
+    <dimen name="item_text_padding">5dp</dimen>
+</resources>

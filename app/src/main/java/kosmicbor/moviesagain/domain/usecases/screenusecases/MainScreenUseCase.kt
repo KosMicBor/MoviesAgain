@@ -1,0 +1,5 @@
+package kosmicbor.moviesagain.domain.usecases.screenusecases
+
+import kosmicbor.moviesagain.domain.usecases.methodsusecases.getMoviesListUseCase
+
+interface MainScreenUseCase: getMoviesListUseCase

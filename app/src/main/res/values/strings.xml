@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">MoviesAgain</string>
+    <string name="retry_string">try again</string>
 </resources>
