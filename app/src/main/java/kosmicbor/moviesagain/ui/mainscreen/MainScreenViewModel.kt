@@ -14,6 +14,8 @@ class MainScreenViewModel(private val usecase: MainScreenUseCase) : ViewModel() 
     private val _dataToObserve = MutableLiveData<AppState>()
     val dataToObserve: LiveData<AppState> = _dataToObserve
 
+    private val moviesList = mutableListOf<ListMovie>()
+
     fun getMoviesList(language: String, page: String) {
         _dataToObserve.postValue(AppStateLoading)
 
@@ -22,7 +24,8 @@ class MainScreenViewModel(private val usecase: MainScreenUseCase) : ViewModel() 
                 when (dataState) {
                     is DataStateSuccess<*> -> {
                         val data = dataState.value as List<ListMovie>
-                        _dataToObserve.postValue(AppStateSuccess(data))
+                        moviesList.addAll(data)
+                        _dataToObserve.postValue(AppStateSuccess(moviesList))
                     }
 
                     is DataStateError<*> -> {

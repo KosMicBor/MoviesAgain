@@ -2,11 +2,13 @@ package kosmicbor.moviesagain.ui.mainscreen
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import kosmicbor.moviesagain.R
 import kosmicbor.moviesagain.data.dataobjects.ListMovie
 import kosmicbor.moviesagain.databinding.ItemListMainScreenBinding
+import kosmicbor.moviesagain.utils.DiffUtilMainScreenList
 
 class MainScreenListAdapter : RecyclerView.Adapter<MainScreenListAdapter.MainScreenViewHolder>() {
 
@@ -50,7 +52,11 @@ class MainScreenListAdapter : RecyclerView.Adapter<MainScreenListAdapter.MainScr
     override fun getItemCount(): Int = moviesList.size
 
     fun updateData(newList: List<ListMovie>) {
+
+        val diffUtil = DiffUtilMainScreenList(moviesList, newList)
+        val result = DiffUtil.calculateDiff(diffUtil)
+        moviesList.clear()
         moviesList.addAll(newList)
-        notifyDataSetChanged()
+        result.dispatchUpdatesTo(this@MainScreenListAdapter)
     }
 }

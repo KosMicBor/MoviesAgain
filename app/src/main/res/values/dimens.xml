@@ -10,4 +10,5 @@
     <dimen name="item_main_list_votes_shape_width">36dp</dimen>
     <dimen name="item_main_list_votes_shape_height">36dp</dimen>
     <dimen name="item_main_list_votes_shape_margin_start">16dp</dimen>
+    <dimen name="item_text_padding">5dp</dimen>
 </resources>
