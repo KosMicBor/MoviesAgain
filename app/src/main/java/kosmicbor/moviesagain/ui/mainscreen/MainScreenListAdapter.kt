@@ -10,7 +10,8 @@ import kosmicbor.moviesagain.data.dataobjects.ListMovie
 import kosmicbor.moviesagain.databinding.ItemListMainScreenBinding
 import kosmicbor.moviesagain.utils.DiffUtilMainScreenList
 
-class MainScreenListAdapter : RecyclerView.Adapter<MainScreenListAdapter.MainScreenViewHolder>() {
+class MainScreenListAdapter(private val onItemClickCallback: (Int) -> Unit) :
+    RecyclerView.Adapter<MainScreenListAdapter.MainScreenViewHolder>() {
 
     private val moviesList = mutableListOf<ListMovie>()
 
@@ -46,6 +47,10 @@ class MainScreenListAdapter : RecyclerView.Adapter<MainScreenListAdapter.MainScr
             }
             releaseDate.text = moviesList[position].releaseDate
             votes.text = moviesList[position].voteAverage.toString()
+
+            itemView.setOnClickListener {
+                onItemClickCallback(moviesList[position].id)
+            }
         }
     }
 

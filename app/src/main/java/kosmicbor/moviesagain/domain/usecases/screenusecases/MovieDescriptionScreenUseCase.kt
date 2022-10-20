@@ -1,4 +1,6 @@
 package kosmicbor.moviesagain.domain.usecases.screenusecases
 
-interface MovieDescriptionScreenUseCase {
+import kosmicbor.moviesagain.domain.usecases.methodsusecases.GetMovieDescriptionUseCase
+
+interface MovieDescriptionScreenUseCase: GetMovieDescriptionUseCase {
 }

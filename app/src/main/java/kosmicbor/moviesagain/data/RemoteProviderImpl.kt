@@ -1,6 +1,8 @@
 package kosmicbor.moviesagain.data
 
+import kosmicbor.moviesagain.data.dataobjects.Genre
 import kosmicbor.moviesagain.data.dataobjects.ListMovie
+import kosmicbor.moviesagain.data.dataobjects.MovieDefinition
 import kosmicbor.moviesagain.data.retrofit.RemoteDataSource
 import kosmicbor.moviesagain.data.retrofit.dto.MoviesListDTO
 import kosmicbor.moviesagain.domain.RemoteProvider
@@ -21,12 +23,22 @@ class RemoteProviderImpl(
 
         return if (responseResult.isSuccessful) {
             flow {
-                val movie = ListMovie(
-                    id = responseResult.body()!!.id,
-                    originalTitle = responseResult.body()!!.originalTitle,
-                    posterPath = responseResult.body()!!.posterPath,
-                    releaseDate = responseResult.body()!!.releaseDate,
-                    voteAverage = responseResult.body()!!.voteAverage
+                val movieDTO = responseResult.body()!!
+                val movie = MovieDefinition(
+                    backdropPath = movieDTO.backdropPath,
+                    budget = movieDTO.budget,
+                    genres = movieDTO.genres.map { Genre(id = it.id, name = it.name) },
+                    id = movieDTO.id,
+                    originalTitle = movieDTO.originalTitle,
+                    overview = movieDTO.overview,
+                    popularity = movieDTO.popularity,
+                    posterPath = movieDTO.posterPath,
+                    releaseDate = movieDTO.releaseDate,
+                    revenue = movieDTO.revenue,
+                    runtime = movieDTO.runtime,
+                    status = movieDTO.status,
+                    voteAverage = movieDTO.voteAverage,
+                    voteCount = movieDTO.voteCount
                 )
 
                 emit(DataStateSuccess(movie))
