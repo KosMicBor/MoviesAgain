@@ -21,17 +21,26 @@ import org.koin.core.qualifier.named
 class MainScreenFragment : Fragment(R.layout.fragment_main_screen) {
 
     companion object {
-        private const val DEFAULT_LANGUAGE_VALUE = "en-US"
+        const val DEFAULT_LANGUAGE_VALUE = "en-US"
         private const val DEFAULT_PAGE_VALUE = "1"
         private const val LAYOUT_MANAGER_SPAN_COUNT = 2
         private const val ZERO_VAL = 0
         private const val LOAD_MORE_DIFFERENCE = 3
+        const val MOVIE_ID_KEY = "MOVIE_ID_KEY"
 
+    }
+
+    private val openFragmentController: OpenFragmentController by lazy {
+        requireActivity() as OpenFragmentController
     }
 
     private var currentUpdatePage = 1
     private val binding: FragmentMainScreenBinding by viewBinding(FragmentMainScreenBinding::bind)
-    private val mainListAdapter = MainScreenListAdapter()
+    private val mainListAdapter = MainScreenListAdapter {id ->
+        val bundle = Bundle()
+        bundle.putInt(MOVIE_ID_KEY, id)
+        openFragmentController.openMovieDescriptionFragment(bundle)
+    }
     private val mainViewModel: MainScreenViewModel by viewModel(named(MAIN_SCREEN_VIEWMODEL_NAME))
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -134,5 +143,9 @@ class MainScreenFragment : Fragment(R.layout.fragment_main_screen) {
                 mainViewModel.getMoviesList(DEFAULT_LANGUAGE_VALUE, DEFAULT_PAGE_VALUE)
             }
             .show()
+    }
+
+    interface OpenFragmentController {
+        fun openMovieDescriptionFragment(bundle: Bundle)
     }
 }

@@ -11,7 +11,7 @@ data class MovieDefinitionDTO(
     val genres: List<GenreDTO>,
     @SerializedName("id")
     val id: Int,
-    @SerializedName("original_title")
+    @SerializedName("title")
     val originalTitle: String,
     @SerializedName("overview")
     val overview: String?,

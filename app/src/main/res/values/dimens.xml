@@ -11,4 +11,16 @@
     <dimen name="item_main_list_votes_shape_height">36dp</dimen>
     <dimen name="item_main_list_votes_shape_margin_start">16dp</dimen>
     <dimen name="item_text_padding">5dp</dimen>
+    <dimen name="movie_desc_screen_backdrop_image_height">350dp</dimen>
+    <dimen name="movie_desc_screen_backdrop_image_padding_bottom">16dp</dimen>
+    <dimen name="movie_desc_screen_title_margin_top">36dp</dimen>
+    <dimen name="movie_desc_screen_title_text_size">36sp</dimen>
+    <dimen name="movie_desc_screen_poster_image_height">150dp</dimen>
+    <dimen name="movie_desc_screen_poster_image_margin_start">16dp</dimen>
+    <dimen name="movie_desc_screen_status_margin_start">8dp</dimen>
+    <dimen name="movie_desc_screen_date_margin_start">8dp</dimen>
+    <dimen name="movie_desc_screen_votes_shape_width">48dp</dimen>
+    <dimen name="movie_desc_screen_votes_shape_height">48dp</dimen>
+    <dimen name="movie_desc_screen_votes_shape_margin_bottom">24dp</dimen>
+    <dimen name="movie_desc_screen_overview_padding">8dp</dimen>
 </resources>

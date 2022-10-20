@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">MoviesAgain</string>
     <string name="retry_string">try again</string>
+    <string name="error_fragment_arguments_is_null_message">The fragment argumens is null</string>
 </resources>
