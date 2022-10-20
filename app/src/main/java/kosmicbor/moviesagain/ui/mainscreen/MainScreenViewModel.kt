@@ -1,4 +1,36 @@
 package kosmicbor.moviesagain.ui.mainscreen
 
-class MainScreenViewModel {
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import kosmicbor.moviesagain.data.dataobjects.ListMovie
+import kosmicbor.moviesagain.domain.usecases.screenusecases.MainScreenUseCase
+import kosmicbor.moviesagain.utils.*
+import kotlinx.coroutines.launch
+
+class MainScreenViewModel(private val usecase: MainScreenUseCase) : ViewModel() {
+
+    private val _dataToObserve = MutableLiveData<AppState>()
+    val dataToObserve: LiveData<AppState> = _dataToObserve
+
+    fun getMoviesList(language: String, page: String) {
+        _dataToObserve.postValue(AppStateLoading)
+
+        viewModelScope.launch {
+            usecase.getMoviesList(language, page).collect { dataState ->
+                when (dataState) {
+                    is DataStateSuccess<*> -> {
+                        val data = dataState.value as List<ListMovie>
+                        _dataToObserve.postValue(AppStateSuccess(data))
+                    }
+
+                    is DataStateError<*> -> {
+                        val dataError = dataState.error as String
+                        _dataToObserve.postValue(AppStateError(dataError))
+                    }
+                }
+            }
+        }
+    }
 }

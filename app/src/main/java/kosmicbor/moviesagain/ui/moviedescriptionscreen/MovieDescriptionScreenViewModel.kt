@@ -1,4 +1,7 @@
 package kosmicbor.moviesagain.ui.moviedescriptionscreen
 
-class MovieDescriptionScreenViewModel {
+import androidx.lifecycle.ViewModel
+
+class MovieDescriptionScreenViewModel() : ViewModel() {
+
 }

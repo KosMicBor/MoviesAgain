@@ -1,9 +1,8 @@
-package kosmicbor.moviesagain.domain
+package kosmicbor.moviesagain.domain.usecases.methodsusecases
 
 import kosmicbor.moviesagain.utils.DataState
 import kotlinx.coroutines.flow.Flow
 
-interface MainRepository {
-    suspend fun getMovieDescription(id: Int, language: String): Flow<DataState>
+interface getMoviesListUseCase {
     suspend fun getMoviesList(language: String, page: String): Flow<DataState>
 }
